@@ -1,9 +1,13 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+    <Exchange />
 </template>
+
+<script>
+import Exchange from "../components/Exchange.vue"
+
+export default {
+    components: {
+        Exchange
+    }
+}
+</script>
