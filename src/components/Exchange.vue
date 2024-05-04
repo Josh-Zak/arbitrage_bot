@@ -1,7 +1,7 @@
 <template>
     <div class="box">
         <div class="top">
-            Exchange name
+            <h2>{{ name }}</h2>
         </div>
         <div class="bottom">
             <div class="buy">
@@ -18,7 +18,10 @@
 
 <script>
 export default{
-    name: 'Exchange'
+    name: 'Exchange',
+    props: [
+        'name'
+    ]
 }
 </script>
 
@@ -29,15 +32,24 @@ export default{
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 250px;
+    height: 200px;
     border: solid 1px black;
     border-radius: 15px;
     overflow: hidden;
+    margin: 20px;
 }
+
+.top{
+    flex: 2;
+}
+
+.bottom{
+    flex: 3;
+}
+
 
 .top, .bottom{
     display: flex;
-    flex: 1;
     justify-content: center;
     align-items: center;
 }
