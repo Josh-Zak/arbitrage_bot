@@ -1,4 +1,7 @@
 <template>
+    <div class="welcomeContainer">
+        <Welcome />
+    </div>
     <div class="exchangeContainer">
         <Exchange name="Binance"/>
         <Exchange name="Kraken"/>
@@ -11,18 +14,22 @@
 
 <script>
 import Exchange from "../components/Exchange.vue"
+import Welcome from "../components/Welcome.vue"
 
 export default {
     components: {
-        Exchange
+        Exchange,
+        Welcome
     },
 }
 </script>
 
 
-<style>
+<style scoped>
 .exchangeContainer{
     display: flex;
     justify-content: space-evenly;
 }
+
+
 </style>

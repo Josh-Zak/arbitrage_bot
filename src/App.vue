@@ -20,7 +20,7 @@
 <style scoped>
 nav{
   height: 60px;
-  background-color: rgb(45, 125, 245);
+  background-color: var(--colour1);
   text-align: center;
   padding: 10px 0;
 }
