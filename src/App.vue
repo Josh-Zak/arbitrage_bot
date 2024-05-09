@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="wrapper">
+    <div class="headerWrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <!-- <RouterLink to="/about">About</RouterLink> -->
@@ -9,6 +9,11 @@
   </header>
 
   <RouterView />
+
+  <div class="footerWrapper">
+
+  </div>
+
 </template>
 
 
@@ -18,14 +23,18 @@
 
 
 <style scoped>
-nav{
+.headerWrapper nav{
   height: 60px;
   background-color: var(--colour1);
   text-align: center;
   padding: 10px 0;
 }
 
-nav a{
+.headerWrapper nav a{
   line-height: 35px;
+}
+
+.headerWrapper{
+  border-bottom: solid var(--colour3) 1px;
 }
 </style>

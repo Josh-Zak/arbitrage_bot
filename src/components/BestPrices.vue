@@ -4,6 +4,11 @@
             <h2>Cheapest exchange to buy from</h2>
             <h3>{{ buyName }} - {{ buyPrice }}</h3>
         </div>
+        <div class="arbitrage">
+            <h3 v-if="arbitrage">There is an arbitrage</h3>
+            <h3 v-else>There is currently no arbitrage</h3>
+            <h2>{{ percentArbitrage }}</h2>
+        </div>
         <div class="bestSell">
             <h2>Best exchange to sell on</h2>
             <h3>{{ sellName }} - {{ sellPrice }}</h3>
@@ -20,7 +25,9 @@ export default{
             buyName: 'buyname',
             buyPrice: 'buyprice',
             sellName: 'sellname',
-            sellPrice: 'sellprice'
+            sellPrice: 'sellprice',
+            arbitrage: false,
+            percentArbitrage: null
         }
     }
 }
@@ -33,7 +40,7 @@ export default{
     flex-direction: row;
 }
 
-.bestBuy, .bestSell{
+.bestBuy, .bestSell, .arbitrage{
     display: flex;
     flex-direction: column;
     flex: 1;

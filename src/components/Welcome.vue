@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 div{
-    background: var(--colour2);
+    background: var(--colour1);
     height: 200px;
     width: 100%;
     display: flex;

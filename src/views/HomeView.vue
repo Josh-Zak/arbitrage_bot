@@ -31,5 +31,8 @@ export default {
     justify-content: space-evenly;
 }
 
+.welcomeContainer{
+    border-bottom: solid var(--colour3) 1px;
+}
 
 </style>
