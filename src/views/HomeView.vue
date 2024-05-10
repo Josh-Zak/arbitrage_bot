@@ -3,9 +3,10 @@
         <Welcome />
     </div>
     <div class="exchangeContainer">
-        <Exchange name="Binance"/>
+        <!-- <Exchange name="Binance"/>
         <Exchange name="Kraken"/>
-        <Exchange name="Coinbase"/>
+        <Exchange name="Coinbase"/> -->
+        <CryptoTable />
         <!-- <Exchange name="Exchange 4"/>
         <Exchange name="Exchange 5"/> -->
     </div>
@@ -13,13 +14,16 @@
 </template>
 
 <script>
+import CryptoTableVue from '@/components/CryptoTable.vue'
 import Exchange from "../components/Exchange.vue"
 import Welcome from "../components/Welcome.vue"
+import CryptoTable from "../components/CryptoTable.vue"
 
 export default {
     components: {
         Exchange,
-        Welcome
+        Welcome,
+        CryptoTable,
     },
 }
 </script>
