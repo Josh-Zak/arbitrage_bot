@@ -2,7 +2,7 @@
     <div class="bestPricesWrapper">
         <div class="bestBuy">
             <h2>Cheapest exchange to buy from</h2>
-            <h3>{{ buyName }} - {{ buyPrice }}</h3>
+            <h3>{{ buyName }} - <span id="buyPrice">{{ buyPrice }}</span></h3>
         </div>
         <div class="arbitrage">
             <h3 v-if="arbitrage">There is an arbitrage</h3>
@@ -11,7 +11,7 @@
         </div>
         <div class="bestSell">
             <h2>Best exchange to sell on</h2>
-            <h3>{{ sellName }} - {{ sellPrice }}</h3>
+            <h3>{{ sellName }} - <span id="sellPrice">{{ sellPrice }}</span></h3>
         </div>
     </div>
 </template>
@@ -57,6 +57,14 @@ h2{
 }
 h3{
     font-size: 24px;
+}
+
+#buyPrice{
+    color: green;
+}
+
+#sellPrice{
+    color: red;
 }
 
 </style>

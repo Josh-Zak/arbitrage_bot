@@ -11,7 +11,10 @@
   <RouterView />
 
   <div class="footerWrapper">
-
+    <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <!-- <RouterLink to="/about">About</RouterLink> -->
+      </nav>
   </div>
 
 </template>
@@ -36,5 +39,18 @@
 
 .headerWrapper{
   border-bottom: solid var(--colour3) 1px;
+}
+
+
+
+.footerWrapper nav{
+  height: 60px;
+  background-color: var(--colour1);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footerWrapper nav a{
+  line-height: 35px;
 }
 </style>
