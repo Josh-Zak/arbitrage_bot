@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Exchange Your Bitcoin with Confidence</h1>
+        <h1>Exchange Your <span id="bitcoinText">Bitcoin</span> with Confidence</h1>
         <h3>Find arbitrage across different crypto exchanges</h3>
     </div>
     <BestPrices />
@@ -22,7 +22,7 @@ export default {
 <style scoped>
 div{
     background: var(--colour1);
-    height: 200px;
+    height: 180px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -39,5 +39,9 @@ h1{
 }
 h3{
     font-size: 24px;
+}
+
+#bitcoinText{
+    color: #f7931a;
 }
 </style>

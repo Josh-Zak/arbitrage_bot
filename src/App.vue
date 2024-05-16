@@ -11,10 +11,7 @@
   <RouterView />
 
   <div class="footerWrapper">
-    <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <!-- <RouterLink to="/about">About</RouterLink> -->
-      </nav>
+    <!-- maybe back to top button -->
   </div>
 
 </template>

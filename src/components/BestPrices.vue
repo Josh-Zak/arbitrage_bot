@@ -38,15 +38,19 @@ export default{
 .bestPricesWrapper{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .bestBuy, .bestSell, .arbitrage{
     display: flex;
     flex-direction: column;
-    flex: 1;
-    justify-content: center;
     align-items: center;
 }
+
+.bestBuy, .bestSell{
+    width: 450px;
+}
+
 
 h2, h3{
     color: var(--colour5);

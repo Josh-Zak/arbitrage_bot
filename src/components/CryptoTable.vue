@@ -7,7 +7,7 @@
         </thead>
         <tbody>
             <tr>
-                <td class="name" rowspan="2">Bitcoin</td>
+                <td class="name" rowspan="2">Bitcoin<br>24h change</td>
                 <td>buy price</td>
                 <td>buy price</td>
                 <td>buy price</td>
@@ -30,7 +30,7 @@
                 <td>sell price</td>
             </tr>
             <tr>
-                <td class="name" rowspan="2">Bitcoin</td>
+                <td class="name" rowspan="2">Ethereum<br>24h change</td>
                 <td>buy price</td>
                 <td>buy price</td>
                 <td>buy price</td>
@@ -75,14 +75,17 @@ td{
     padding: 20px;
 }
 
+td:not(.name){
+    text-align: center;
+}
+
 td, th{
-    border-left: solid var(--colour4) 2px;
-    border-right: solid var(--colour4) 2px;
     color: var(--colour5);
 }
 
-thead th{
-    border: solid var(--colour4) 2px;
+thead th, .name{
+    padding: 10px;
+    font-weight: bold;
 }
 
 td:first-of-type {
@@ -94,8 +97,7 @@ td:first-of-type {
 }
 
 tr:nth-child(2n){
-    border-bottom: solid var(--colour4) 2px;
-    background-color: var(--colour3);
+    background-color: var(--colour1);
 }
 
 tr:nth-child(2n+1){
