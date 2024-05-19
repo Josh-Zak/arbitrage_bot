@@ -5,9 +5,11 @@
             <h3>{{ buyName }} - <span id="buyPrice">{{ buyPrice }}</span></h3>
         </div>
         <div class="arbitrage">
-            <h3 v-if="arbitrage">There is an arbitrage</h3>
+            <div v-if="arbitrage > 0.0">
+                <h3>There is an arbitrage</h3>
+                <h2 id="arbitrageValue">{{ arbitrage }}%</h2>
+            </div>
             <h3 v-else>There is currently no arbitrage</h3>
-            <h2>{{ percentArbitrage }}</h2>
         </div>
         <div class="bestSell">
             <h2>Best exchange to sell on</h2>
@@ -26,8 +28,7 @@ export default{
             buyPrice: 'buyprice',
             sellName: 'sellname',
             sellPrice: 'sellprice',
-            arbitrage: false,
-            percentArbitrage: null
+            arbitrage: 0,
         }
     }
 }
@@ -69,6 +70,10 @@ h3{
 
 #sellPrice{
     color: red;
+}
+
+#arbitrageValue{
+    text-align: center
 }
 
 </style>

@@ -1,7 +1,10 @@
 @import './base.css';
 
+body{
+  background-color: #101720;
+}
+
 #app {
-  margin: 0 auto;
   font-weight: normal;
 }
 

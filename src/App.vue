@@ -30,6 +30,7 @@
 
 
 <style scoped>
+
 .headerWrapper nav{
   height: 60px;
   background-color: var(--colour1);

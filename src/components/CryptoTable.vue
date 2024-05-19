@@ -1,59 +1,61 @@
 <template>
-    <table class="cryptoTable">
-        <thead>
-            <tr>
-                <th v-for="(header, index) in headers" :key="index">{{ header }}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="name" rowspan="2">Bitcoin<br>24h change</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-            </tr>
-            <tr>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-            </tr>
-            <tr>
-                <td class="name" rowspan="2">Ethereum<br>24h change</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-                <td>buy price</td>
-            </tr>
-            <tr>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-                <td>sell price</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="tableScroll">
+        <table class="cryptoTable">
+            <thead>
+                <tr>
+                    <th v-for="(header, index) in headers" :key="index">{{ header }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="name" rowspan="2">Bitcoin<br>24h change</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                </tr>
+                <tr>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                </tr>
+                <tr>
+                    <td class="name" rowspan="2">Ethereum<br>24h change</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                    <td>buy price</td>
+                </tr>
+                <tr>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                    <td>sell price</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 
@@ -81,6 +83,7 @@ td:not(.name){
 
 td, th{
     color: var(--colour5);
+    min-width: 110px;
 }
 
 thead th, .name{
@@ -106,7 +109,12 @@ tr:nth-child(2n+1){
 
 table{
     border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.tableScroll{
     margin: 30px;
+    overflow-x: auto;
     width: 1280px;
 }
 </style>

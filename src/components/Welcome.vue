@@ -42,6 +42,6 @@ h3{
 }
 
 #bitcoinText{
-    color: #f7931a;
+    color: var(--colour-bitcoin);
 }
 </style>
