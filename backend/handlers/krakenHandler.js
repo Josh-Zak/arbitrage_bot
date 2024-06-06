@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 const endpoint = "https://api.kraken.com";
+const name = "Kraken";
 
 async function fetchData() {
   try {
@@ -10,10 +11,15 @@ async function fetchData() {
         pair: "BTCUSDT"
       }
     });
-    console.log(res.data.result.XBTUSDT);
+
+    return {
+      name: name,
+      ask: res.data.result.XBTUSDT.a[0],
+      bid: res.data.result.XBTUSDT.b[0]
+    };
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 
-fetchData();
+module.exports = { fetchData };

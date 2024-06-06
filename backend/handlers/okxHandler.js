@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 const endpoint = "https://www.okx.com";
+const name = "OKX";
 
 async function fetchData() {
   try {
@@ -9,10 +10,15 @@ async function fetchData() {
         instId: "BTC-USDT"
       }
     });
-    console.log(res.data.data[0]);
+
+    return {
+      name: name,
+      ask: res.data.data[0].askPx,
+      bid: res.data.data[0].bidPx
+    };
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 
-fetchData();
+module.exports = { fetchData };

@@ -1,19 +1,25 @@
 const axios = require('axios');
 
-const endpoint = "https://api-pub.bitfinex.com";
+const endpoint = "https://api.huobi.pro";
+const name = "HTX";
 
 async function fetchData() {
   try {
-    // https://docs.bitfinex.com/reference/rest-public-ticker
-    let res = await axios.get(endpoint + "/v2/ticker", {
+    // https://www.htx.com/en-us/opend/newApiPages/?id=7ec4a3b6-7773-11ed-9966-0242ac110003
+    let res = await axios.get(endpoint + "/market/detail/merged", {
       params: {
-        symbol: "BTCUSDT"
+        symbol: "btcusdt"
       }
     });
-    console.log(res.data);
+
+    return {
+      name: name,
+      ask: res.data.tick.ask[0],
+      bid: res.data.tick.bid[0]
+    };
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 
-fetchData();
+module.exports = { fetchData };

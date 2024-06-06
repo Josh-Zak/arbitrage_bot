@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 const endpoint = "https://api.gateio.ws";
+const name = "Gate.io";
 
 async function fetchData() {
   try {
@@ -10,10 +11,15 @@ async function fetchData() {
         currency_pair: "BTC_USDT"
       }
     });
-    console.log(res.data[0]);
+
+    return {
+      name: name,
+      ask: res.data[0].lowest_ask,
+      bid: res.data[0].highest_bid
+    };
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 
-fetchData();
+module.exports = { fetchData };

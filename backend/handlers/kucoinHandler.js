@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 const endpoint = "https://api.kucoin.com";
+const name = "Kucoin";
 
 async function fetchData() {
   try {
@@ -10,10 +11,15 @@ async function fetchData() {
         symbol: "BTC-USDT"
       }
     });
-    console.log(res.data.data);
+
+    return {
+      name: name,
+      ask: res.data.data.bestAsk,
+      bid: res.data.data.bestBid
+    };
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 
-fetchData();
+module.exports = { fetchData };

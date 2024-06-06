@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 const endpoint = "https://api.bybit.com";
+const name = "Bybit";
 
 async function fetchData() {
   try {
@@ -10,10 +11,14 @@ async function fetchData() {
         symbol: "BTCUSDT"
       }
     });
-    console.log(res.data.result.list[0]);
+    return {
+      name: name,
+      ask: res.data.result.list[0].bid1Price,
+      bid: res.data.result.list[0].ask1Price
+    };
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 }
 
-fetchData();
+module.exports = { fetchData };
