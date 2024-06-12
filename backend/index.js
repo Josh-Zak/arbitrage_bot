@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
@@ -14,6 +15,9 @@ const okx = require("./handlers/okxHandler");
 const upbit = require("./handlers/upbitHandler");
 
 
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

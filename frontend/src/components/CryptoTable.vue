@@ -10,48 +10,11 @@
                 <tr>
                     <td class="name" rowspan="2">Bitcoin<br>24h change</td>
                     <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
+                    <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.bid) }}</td>
                 </tr>
                 <tr>
                     <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                </tr>
-                <tr>
-                    <td class="name" rowspan="2">Ethereum<br>24h change</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                    <td>buy price</td>
-                </tr>
-                <tr>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
-                    <td>sell price</td>
+                    <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.ask) }}</td>
                 </tr>
             </tbody>
         </table>
@@ -64,7 +27,30 @@ export default{
     name: 'CryptoTable',
     data() {
         return {
-            headers: ['name', 'best price', 'book1', 'book2', 'book3', 'book4', 'book5', 'book6', 'book7', 'book8']
+            headers: ['Name', 'Best Price'],
+            exchangeData: null
+        }
+    },
+    props: {
+        apiData: {
+            type: Array,
+            required: true
+        }
+    },
+    watch: {
+        apiData(newData) {
+            if (newData) {
+                this.headers = ['Name', 'Best Price'];
+                newData.forEach(item => {
+                    this.headers.push(item.name);
+                });
+                this.exchangeData = newData;
+            }
+        }
+    },
+    methods: {
+        formatPrice(value) {
+            return parseFloat(value).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
     }
 }
