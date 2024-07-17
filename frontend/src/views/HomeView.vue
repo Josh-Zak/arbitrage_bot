@@ -1,6 +1,6 @@
 <template>
     <div class="welcomeContainer">
-        <Welcome />
+        <Welcome :apiData="apiData"/>
     </div>
     <div class="tableContainer">
         <CryptoTable :apiData="apiData" />

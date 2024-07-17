@@ -10,11 +10,11 @@
                 <tr>
                     <td class="name" rowspan="2">Bitcoin<br>24h change</td>
                     <td>buy price</td>
-                    <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.bid) }}</td>
+                    <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.ask) }}</td>
                 </tr>
                 <tr>
                     <td>sell price</td>
-                    <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.ask) }}</td>
+                    <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.bid) }}</td>
                 </tr>
             </tbody>
         </table>

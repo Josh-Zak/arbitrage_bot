@@ -1,8 +1,8 @@
 <template>
     <div class="bestPricesWrapper">
         <div class="bestBuy">
-            <h2>Cheapest exchange to buy from</h2>
-            <h3>{{ buyName }} - <span id="buyPrice">{{ buyPrice }}</span></h3>
+            <h2>Best exchange to buy from</h2>
+            <h3>{{ buyName }} - <span id="buyPrice">{{ formatPrice(buyPrice) }}</span></h3>
         </div>
         <div class="arbitrage">
             <div v-if="arbitrage > 0.0">
@@ -12,8 +12,8 @@
             <h3 v-else>There is currently no arbitrage</h3>
         </div>
         <div class="bestSell">
-            <h2>Best exchange to sell on</h2>
-            <h3>{{ sellName }} - <span id="sellPrice">{{ sellPrice }}</span></h3>
+            <h2>Best exchange to sell to</h2>
+            <h3>{{ sellName }} - <span id="sellPrice">{{ formatPrice(sellPrice) }}</span></h3>
         </div>
     </div>
 </template>
@@ -24,13 +24,51 @@ export default{
     name: 'BestPrices',
     data() {
         return {
-            buyName: 'buyname',
-            buyPrice: 'buyprice',
-            sellName: 'sellname',
-            sellPrice: 'sellprice',
+            buyName: null,
+            buyPrice: null,
+            sellName: null,
+            sellPrice: null,
             arbitrage: 0,
         }
-    }
+    },
+    props: {
+        apiData: {
+            type: Array,
+            required: true
+        }
+    },
+    methods: {
+        formatPrice(value) {
+            return parseFloat(value).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    },
+    watch: {
+        apiData(newData) {
+            if (newData) {
+                let bestBid = -Infinity;
+                let bestBidName;
+                let bestAsk = Infinity;
+                let bestAskName;
+                newData.forEach(item => {
+                    if(item.bid >= bestBid){
+                        bestBid = item.bid;
+                        bestBidName = item.name;
+                    }
+                    if(item.ask <= bestAsk){
+                        bestAsk = item.ask;
+                        bestAskName = item.name;
+                    }
+                    
+                });
+                this.buyPrice = bestAsk;
+                this.buyName = bestAskName;
+                this.sellPrice = bestBid;
+                this.sellName = bestBidName;
+
+                this.arbitrage = (this.sellPrice / this.buyPrice * 100 - 100).toFixed(2);
+            }
+        }
+    },
 }
 </script>
 

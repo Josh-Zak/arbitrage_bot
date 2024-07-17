@@ -1,9 +1,9 @@
 <template>
     <div>
         <h1>Exchange Your <span id="bitcoinText">Bitcoin</span> with Confidence</h1>
-        <h3>Find arbitrage across different crypto exchanges</h3>
+        <h3>Find the best prices across different crypto exchanges</h3>
     </div>
-    <BestPrices />
+    <BestPrices :apiData="apiData"/>
 </template>
 
 
@@ -14,6 +14,12 @@ export default {
     name: 'Welcome',
     components: {
         BestPrices
+    },
+    props: {
+        apiData: {
+            type: Array,
+            required: true
+        }
     }
 }
 </script>
