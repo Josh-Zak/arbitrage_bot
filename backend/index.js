@@ -31,17 +31,18 @@ app.get('/', (req, res) => {
 
 app.get('/tableData', async (req, res) => {
   try{
-    let data = [];
-    data.push(await binance.fetchData());
-    data.push(await bitfinex.fetchData());
-    data.push(await bybit.fetchData());
-    data.push(await coinbase.fetchData());
-    data.push(await gateio.fetchData());
-    data.push(await htx.fetchData());
-    data.push(await kraken.fetchData());
-    data.push(await kucoin.fetchData());
-    data.push(await okx.fetchData());
-    data.push(await upbit.fetchData());
+    const data = await Promise.all([
+      binance.fetchData(),
+      bitfinex.fetchData(),
+      bybit.fetchData(),
+      coinbase.fetchData(),
+      gateio.fetchData(),
+      htx.fetchData(),
+      kraken.fetchData(),
+      kucoin.fetchData(),
+      okx.fetchData(),
+      upbit.fetchData()
+    ]);
 
     res.send(data);
   }catch(error){

@@ -2,7 +2,8 @@
     <div class="bestPricesWrapper">
         <div class="bestBuy">
             <h2>Best exchange to buy from</h2>
-            <h3>{{ buyName }} - <span id="buyPrice">{{ formatPrice(buyPrice) }}</span></h3>
+            <h3 v-if="buyPrice != null">{{ buyName }} - <span id="buyPrice">{{ formatPrice(buyPrice) }}</span></h3>
+            <h3 v-else><span id="buyPrice">Loading...</span></h3>
         </div>
         <div class="arbitrage">
             <div v-if="arbitrage > 0.0">
@@ -13,7 +14,8 @@
         </div>
         <div class="bestSell">
             <h2>Best exchange to sell to</h2>
-            <h3>{{ sellName }} - <span id="sellPrice">{{ formatPrice(sellPrice) }}</span></h3>
+            <h3 v-if="sellPrice != null">{{ sellName }} - <span id="sellPrice">{{ formatPrice(sellPrice) }}</span></h3>
+            <h3 v-else><span id="sellPrice">Loading...</span></h3>
         </div>
     </div>
 </template>

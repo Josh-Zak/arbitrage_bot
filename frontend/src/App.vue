@@ -12,13 +12,21 @@
   <RouterView />
 
   <footer>
-    <div class="footerWrapper">
-    <!-- maybe back to top button -->
-      <nav>
-        <RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
-      </nav>
-      <h2>"The journey of a thousand miles begins with one step." - Lao Tzu</h2>
-    </div>
+	<div class="footerWrapper">
+	<!-- maybe back to top button -->
+		<div class="column">
+			<nav>
+				<RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
+				</nav>
+				<h2 class="quote">"The journey of a thousand miles begins with one step." - Lao Tzu</h2>
+		</div>
+		<div class="column">
+			<h3 class="disclaimer">This site is 100% for entertainment purposes only and does not involve real money betting.
+				If you or someone you know has a gambling problem and wants help, call 1-800 GAMBLER.
+				This service is intended for adult users only.
+			</h3>
+		</div>
+	</div>
   </footer>
   
 </template>
@@ -49,7 +57,9 @@
 
 .footerWrapper{
   background-color: #101720;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
 }
 
 
@@ -63,8 +73,23 @@
   line-height: 35px;
 }
 
-.footerWrapper h2{
+.quote, .disclaimer{
   padding: 20px;
   color: var(--colour5);
 }
+
+.quote{
+	text-align: center;
+}
+
+.column{
+	flex: 1;
+}
+
+
+
+
+
+
+
 </style>
