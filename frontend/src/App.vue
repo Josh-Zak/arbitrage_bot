@@ -13,7 +13,7 @@
         <RouterView />
 
         <footer>
-            <div class="footerWrapper">
+            <!-- <div class="footerWrapper">
                 <h1 class="statement">Buy/Sell. Bitcoin. Confidently.</h1>
                 <h3 class="disclaimer">This site is 100% for entertainment purposes only and does not involve real money betting.
                         If you or someone you know has a gambling problem and wants help, call 1-800 GAMBLER.
@@ -27,33 +27,39 @@
                     Developed by Josh Zak | Software Engineer
                 </div>
 
+            maybe back to top button
+            <h2 class="quote">"The journey of a thousand miles begins with one step." - Lao Tzu</h2>
+            </div> -->
 
 
-
-
-
-
-
-
-
-
-
-
+            <div class="footerWrapper">
+                <div class="columns">
+                    <div class="column left">
+                        <p class="disclaimer">This site is 100% for entertainment purposes only and does not involve real money betting.
+                                If you or someone you know has a gambling problem and wants help, call 1-800 GAMBLER.
+                                This service is intended for adult users only.
+                        </p>
+                    </div>
+                    <div class="column right">
+                        <div class="navWrapper">
+                            <nav>
+                                <RouterLink to="/">Home</RouterLink>
+                                <RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
+                            </nav>
+                        </div>
+                        <div class="author">
+                            Developed by Josh Zak | Software Engineer
+                        </div>
+                    </div>
+                </div>
 
             <!-- maybe back to top button -->
-                <!-- <div class="column">
-                    <nav>
-                        <RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
-                        </nav>
-                        <h2 class="quote">"The journey of a thousand miles begins with one step." - Lao Tzu</h2>
-                </div>
-                <div class="column">
-                    <h3 class="disclaimer">This site is 100% for entertainment purposes only and does not involve real money betting.
-                        If you or someone you know has a gambling problem and wants help, call 1-800 GAMBLER.
-                        This service is intended for adult users only.
-                    </h3>
-                </div> -->
+            <!-- <h2 class="quote">"The journey of a thousand miles begins with one step." - Lao Tzu</h2> -->
             </div>
+
+
+
+
         </footer>
     </div>
 </template>
@@ -82,51 +88,61 @@
 }
 
 
+
+footer{
+    background-color: var(--colour2);
+    display: flex;
+    justify-content: center;
+}
+
 .footerWrapper{
-  background-color: #101720;
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  flex-direction: column;
-  position: relative;
+    width: 1280px;
 }
 
-
-.footerWrapper nav{
-  height: 60px;
-  text-align: center;
-  padding: 10px 0;
+.columns{
+    display: flex;
+    justify-content: space-around;
 }
 
-.footerWrapper nav a{
-  line-height: 35px;
+.column{
+    width: 50%;
 }
 
-.quote, .disclaimer, .statement{
-  padding: 10px;
-  color: var(--colour5);
-  text-align: center;
-}
-
-.from{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+.left .disclaimer{
+    font-size: medium;
+    margin: 50px 20px 50px 0px;
     color: var(--colour5);
 }
 
-
-.column{
-	flex: 1;
+.column.right{
+    position: relative;
 }
 
-nav a{
-    margin: 30px;
+.navWrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
 }
 
-nav{
-    margin-top: 40px;
+.navWrapper nav{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }
+
+.navWrapper nav a {
+    text-align: center;
+}
+
+.author{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: var(--colour5);
+}
+
 
 
 
