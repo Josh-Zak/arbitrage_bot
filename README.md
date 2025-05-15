@@ -3,9 +3,9 @@ Work in progress
 
 ## How to Run
 ### Frontend
-    ```cd frontend```
-    ```npm run dev```
+    `cd frontend`
+    `npm run dev`
 
 ### Backend
-    ```cd backend```
-    ```node index.js```
+    `cd backend`
+    `node index.js` or `nodemon index.js`

@@ -22,7 +22,8 @@ export default {
 
 .calculatorContainer{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--colour1);
 }
 

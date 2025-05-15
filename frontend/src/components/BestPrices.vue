@@ -10,7 +10,7 @@
                 <h3>There is an arbitrage</h3>
                 <h2 id="arbitrageValue">{{ arbitrage }}%</h2>
             </div>
-            <h3 v-else>There is currently no arbitrage</h3>
+            <h3 v-else>There is currently no arbitrage. Check back later</h3>
         </div>
         <div class="bestSell">
             <h2>Best exchange to sell to</h2>
