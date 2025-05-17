@@ -15,11 +15,24 @@
             <input type="number" v-model="amount">
         </div>
 
+        <!-- Put a toggle on USD/BTC -->
+        <div class="toggle">
+            <button
+                class="btc-button"
+                :class="[btcSelected ? 'active' : '']"
+                @click="toggleCurrency"
+                >BTC</button>
+            <button
+                class="usd-button"
+                :class="[!btcSelected ? 'active' : '']"
+                @click="toggleCurrency"
+            >USD</button>
+        </div>
+
         <div class="profit">    
             <Label>Profit/Loss</Label>
             <h3 id="profit">${{ getProfit }}</h3>
         </div>
-        
     </div>
 
 </template>
@@ -34,12 +47,18 @@ export default{
         return{
             buyPrice: null,
             sellPrice: null,
-            amount: null
+            amount: null,
+            btcSelected: true
         }
     },
     computed: {
         getProfit(){
             return  (this.sellPrice - this.buyPrice) * this.amount;
+        }
+    },
+    methods: {
+        toggleCurrency(){
+            this.btcSelected = !this.btcSelected;
         }
     }
 }
@@ -73,6 +92,33 @@ input {
     border: 2px solid var(--colour3);
     border-radius: 20px;
     margin: 20px;
+}
+
+.toggle{
+    margin: 20px;
+    text-align: right;
+}
+
+button{
+    padding: 10px 55px;
+}
+
+.toggle .active{
+    background-color: green;
+}
+
+.toggle button{
+    background-color: var(--colour2);
+}
+
+.btc-button{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.usd-button{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 </style>
