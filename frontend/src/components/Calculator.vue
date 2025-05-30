@@ -114,6 +114,18 @@ input {
     min-height: 50px;
     background-color: transparent;
     font-size: 90%;
+    outline: none;
+    caret-color: var(--colour5);
+    color: var(--colour5);
+}
+
+/* Remove arrows on input */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .input-Field{
