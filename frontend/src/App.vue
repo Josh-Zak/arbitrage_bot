@@ -2,36 +2,17 @@
     <div>
         <header>
             <div class="headerWrapper">
-            <nav>
-                <RouterLink to="/">Home</RouterLink>
-                <RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
-                <!-- <RouterLink to="/about">About</RouterLink> -->
-            </nav>
+                <nav>
+                    <RouterLink to="/">Home</RouterLink>
+                    <RouterLink to="/calculator">Calculator</RouterLink>
+                    <!-- <RouterLink to="/about">About</RouterLink> -->
+                </nav>
             </div>
         </header>
 
         <RouterView />
 
         <footer>
-            <!-- <div class="footerWrapper">
-                <h1 class="statement">Buy/Sell. Bitcoin. Confidently.</h1>
-                <h3 class="disclaimer">This site is 100% for entertainment purposes only and does not involve real money betting.
-                        If you or someone you know has a gambling problem and wants help, call 1-800 GAMBLER.
-                        This service is intended for adult users only.
-                </h3>
-                <nav>
-                    <RouterLink to="/">Home</RouterLink>
-                    <RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
-                </nav>
-                <div class="from">
-                    Developed by Josh Zak | Software Engineer
-                </div>
-
-            maybe back to top button
-            <h2 class="quote">"The journey of a thousand miles begins with one step." - Lao Tzu</h2>
-            </div> -->
-
-
             <div class="footerWrapper">
                 <div class="columns">
                     <div class="column left">
@@ -56,10 +37,6 @@
             <!-- maybe back to top button -->
             <!-- <h2 class="quote">"The journey of a thousand miles begins with one step." - Lao Tzu</h2> -->
             </div>
-
-
-
-
         </footer>
     </div>
 </template>
@@ -73,14 +50,24 @@
 <style scoped>
 
 .headerWrapper nav{
-  height: 60px;
+  height: 70px;
   background-color: var(--colour1);
   text-align: center;
   padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .headerWrapper nav a{
   line-height: 35px;
+  color: var(--colour4);
+  font-size: x-large;
+  margin: 0px 15px
+}
+
+.headerWrapper nav a:hover{
+    color: var(--colour5);
 }
 
 .headerWrapper{
@@ -142,12 +129,5 @@ footer{
     right: 0;
     color: var(--colour5);
 }
-
-
-
-
-
-
-
 
 </style>

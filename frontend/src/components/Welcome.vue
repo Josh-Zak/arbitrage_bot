@@ -1,19 +1,24 @@
 <template>
-    <div>
-        <h1>Exchange Your <span id="bitcoinText">Bitcoin</span> with Confidence</h1>
-        <h3>Find the best prices across different crypto exchanges</h3>
+    <div class="welcomeWrapper">
+        <div class="welcomeText">
+            <h1>Exchange Your <span id="bitcoinText">Bitcoin</span> with Confidence</h1>
+            <h3>Find the best prices across different crypto exchanges</h3>
+        </div>
+        <Summary />
+        <BestPrices :apiData="apiData"/>
     </div>
-    <BestPrices :apiData="apiData"/>
 </template>
 
 
 <script>
 import BestPrices from './BestPrices.vue';
+import Summary from './Summary.vue';
 
 export default {
     name: 'Welcome',
     components: {
-        BestPrices
+        BestPrices,
+        Summary
     },
     props: {
         apiData: {
@@ -26,10 +31,9 @@ export default {
 
 
 <style scoped>
-div{
+.welcomeText{
     background: var(--colour1);
     height: 180px;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

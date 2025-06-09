@@ -1,9 +1,11 @@
 <template>
-    <div class="welcomeContainer">
-        <Welcome :apiData="apiData"/>
-    </div>
-    <div class="tableContainer">
-        <CryptoTable :apiData="apiData" />
+    <div class="homeContainer">
+        <div class="welcomeContainer">
+            <Welcome :apiData="apiData"/>
+        </div>
+        <div class="tableContainer">
+            <CryptoTable :apiData="apiData" />
+        </div>
     </div>
 </template>
 

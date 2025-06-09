@@ -1,21 +1,23 @@
 <template>
     <div class="bestPricesWrapper">
-        <div class="bestBuy">
-            <h2>Best exchange to buy from</h2>
-            <h3 v-if="buyPrice != null">{{ buyName }} - <span id="buyPrice">{{ formatPrice(buyPrice) }}</span></h3>
-            <h3 v-else><span id="buyPrice">Loading...</span></h3>
-        </div>
-        <div class="arbitrage">
-            <div v-if="arbitrage > 0.0">
-                <h3>There is an arbitrage</h3>
-                <h2 id="arbitrageValue">{{ arbitrage }}%</h2>
+        <div class="bestPricesContainer">
+            <div class="bestBuy">
+                <h2>Best exchange to buy from</h2>
+                <h3 v-if="buyPrice != null">{{ buyName }} - <span id="buyPrice">{{ formatPrice(buyPrice) }}</span></h3>
+                <h3 v-else><span id="buyPrice">Loading...</span></h3>
             </div>
-            <h3 v-else>There is currently no arbitrage. Check back later</h3>
-        </div>
-        <div class="bestSell">
-            <h2>Best exchange to sell to</h2>
-            <h3 v-if="sellPrice != null">{{ sellName }} - <span id="sellPrice">{{ formatPrice(sellPrice) }}</span></h3>
-            <h3 v-else><span id="sellPrice">Loading...</span></h3>
+            <div class="arbitrage">
+                <div v-if="arbitrage > 0.0">
+                    <h3>There is an arbitrage</h3>
+                    <h2 id="arbitrageValue">{{ arbitrage }}%</h2>
+                </div>
+                <h3 v-else>There is currently no arbitrage. Check back later</h3>
+            </div>
+            <div class="bestSell">
+                <h2>Best exchange to sell to</h2>
+                <h3 v-if="sellPrice != null">{{ sellName }} - <span id="sellPrice">{{ formatPrice(sellPrice) }}</span></h3>
+                <h3 v-else><span id="sellPrice">Loading...</span></h3>
+            </div>
         </div>
     </div>
 </template>
@@ -76,10 +78,20 @@ export default{
 
 
 <style scoped>
+
 .bestPricesWrapper{
     display: flex;
+    background: var(--colour1);
+    height: 180px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bestPricesContainer{
+    display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 1280px;
 }
 
 .bestBuy, .bestSell, .arbitrage{
