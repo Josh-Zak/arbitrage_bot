@@ -31,4 +31,12 @@ export default{
     border: 2px solid var(--colour3);
     border-radius: 10px;
 }
+
+h1{
+    color: var(--colour5);
+}
+
+h3{
+    color: var(--colour3);
+}
 </style>

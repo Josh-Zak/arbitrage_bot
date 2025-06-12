@@ -1,9 +1,21 @@
 <template>
     <div class="summaryWrapper">
         <div class="summaryContainer">
-            <SummaryBox id="box1" :header="'header 1'" :body="'body 1'" />
-            <SummaryBox id="box2" :header="'header 2'" :body="'body 2'" />
-            <SummaryBox id="box3" :header="'header 3'" :body="'body 3'" />
+            <SummaryBox
+                id="box1"
+                :header="'Real-Time Price Data'"
+                :body="'Get live data from multiple exchanges to find the best trading opportunities.'" 
+            />
+            <SummaryBox
+                id="box2"
+                :header="'Find Arbitrage'"
+                :body="'Take advange of price discrepancies between different exchanges.'"
+            />
+            <SummaryBox
+                id="box3"
+                :header="'Calculate Profit'"
+                :body="'Determine profit/loss at different price levels and quantities.'"
+            />
         </div>
     </div>
 </template>

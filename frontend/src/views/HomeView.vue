@@ -1,9 +1,12 @@
 <template>
-    <div class="homeContainer">
-        <div class="welcomeContainer">
+    <div id="homeContainer">
+        <div id="welcomeContainer">
             <Welcome :apiData="apiData"/>
         </div>
-        <div class="tableContainer">
+        <div id="bestPricesContainer">
+            <BestPrices :apiData="apiData"/>
+        </div>
+        <div id="tableContainer">
             <CryptoTable :apiData="apiData" />
         </div>
     </div>
@@ -13,11 +16,13 @@
 import axios from "axios";
 import Welcome from "../components/Welcome.vue"
 import CryptoTable from "../components/CryptoTable.vue"
+import BestPrices from "../components/BestPrices.vue";
 
 export default {
     components: {
         Welcome,
         CryptoTable,
+        BestPrices
     },
     data() {
         return {
@@ -45,7 +50,12 @@ export default {
 
 <style scoped>
 
-.tableContainer{
+#welcomeContainer{
+    height: 100vh
+}
+
+
+#tableContainer{
     display: flex;
     justify-content: center;
     background-color: var(--colour1);
