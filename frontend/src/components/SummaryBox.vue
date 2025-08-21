@@ -37,6 +37,6 @@ h1{
 }
 
 h3{
-    color: var(--colour3);
+    color: var(--colour4);
 }
 </style>

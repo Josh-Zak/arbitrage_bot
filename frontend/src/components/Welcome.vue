@@ -57,6 +57,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 160px;
+    margin-bottom: 50px;
 }
 
 .welcomeText h1{

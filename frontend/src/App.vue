@@ -121,6 +121,10 @@ footer{
 
 .navWrapper nav a {
     text-align: center;
+    color: var(--colour4);
+}
+.navWrapper nav a:hover{
+    color: var(--colour5);
 }
 
 .author{

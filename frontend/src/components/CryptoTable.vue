@@ -102,5 +102,6 @@ table{
     margin: 30px;
     overflow-x: auto;
     width: 1280px;
+    margin-bottom: 200px;
 }
 </style>
