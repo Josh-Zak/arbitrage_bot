@@ -14,29 +14,26 @@
 
         <footer>
             <div class="footerWrapper">
-                <div class="columns">
-                    <div class="column left">
-                        <p class="disclaimer">This site is 100% for entertainment purposes only and does not involve real money betting.
-                                If you or someone you know has a gambling problem and wants help, call 1-800 GAMBLER.
-                                This service is intended for adult users only.
-                        </p>
-                    </div>
-                    <div class="column right">
-                        <div class="navWrapper">
-                            <nav>
-                                <RouterLink to="/">Home</RouterLink>
-                                <RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
-                            </nav>
-                        </div>
-                        <div class="author">
-                            Developed by Josh Zak | Software Engineer
-                        </div>
-                    </div>
+                <div class="navWrapper">
+                    <nav>
+                        <RouterLink to="/">Home</RouterLink>
+                        <RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
+                    </nav>
                 </div>
+                <p class="disclaimer">This site is 100% for entertainment purposes only and does not involve real money betting.
+                        If you or someone you know has a gambling problem and wants help, call 1-800 GAMBLER.
+                        This service is intended for adult users only.
+                </p>
+                <hr>
+                <div class="author">
+                    <a href="https://www.linkedin.com/in/joshzak19/" target="_blank" rel="noopener noreferrer">
+                        Developed by Josh Zak | Software Engineer
+                    </a>
+                </div>
+            </div>
 
             <!-- maybe back to top button -->
             <!-- <h2 class="quote">"The journey of a thousand miles begins with one step." - Lao Tzu</h2> -->
-            </div>
         </footer>
     </div>
 </template>
@@ -63,7 +60,8 @@
   line-height: 35px;
   color: var(--colour4);
   font-size: x-large;
-  margin: 0px 15px
+  margin: 0px 15px;
+  width: 100px;
 }
 
 .headerWrapper nav a:hover{
@@ -86,52 +84,40 @@ footer{
     width: 1280px;
 }
 
-.columns{
-    display: flex;
-    justify-content: space-around;
-}
 
-.column{
-    width: 50%;
-}
-
-.left .disclaimer{
+.disclaimer{
     font-size: medium;
-    margin: 50px 20px 50px 0px;
-    color: var(--colour5);
-}
-
-.column.right{
-    position: relative;
-}
-
-.navWrapper {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    transform: translateY(-50%);
+    margin: 0 100px 20px 150px;
+    color: var(--colour4);
+    text-align: center;
 }
 
 .navWrapper nav{
     display: flex;
-    justify-content: space-evenly;
-    width: 100%;
+    justify-content: center;
 }
 
 .navWrapper nav a {
     text-align: center;
     color: var(--colour4);
+    margin: 20px 40px;
+    width: 150px;
 }
 .navWrapper nav a:hover{
     color: var(--colour5);
 }
 
+hr{
+    border-color: var(--colour4);
+}
+
 .author{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: var(--colour5);
+    margin: 20px 20px 20px 0;
+    text-align: right;
+}
+
+.author a{
+    color: var(--colour4);
 }
 
 </style>

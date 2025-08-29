@@ -51,7 +51,7 @@ export default {
 <style scoped>
 
 #welcomeContainer{
-    height: 100vh
+    height: 100vh;
 }
 
 
