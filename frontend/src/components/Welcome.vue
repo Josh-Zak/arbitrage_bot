@@ -51,7 +51,6 @@ export default {
 
 
 .welcomeText{
-    background: var(--colour1);
     height: 180px;
     display: flex;
     flex-direction: column;

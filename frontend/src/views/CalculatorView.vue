@@ -24,7 +24,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--colour1);
+    background-color: var(--colour2);
 }
 
 

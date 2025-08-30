@@ -85,6 +85,8 @@ export default{
     height: 180px;
     justify-content: center;
     align-items: center;
+    padding-top: 180px;
+    margin-bottom: 120px;
 }
 
 .bestPricesContainer{

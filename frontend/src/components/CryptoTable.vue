@@ -8,7 +8,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="name" rowspan="2">Bitcoin<br>24h change</td>
+                    <td class="name" rowspan="2">Bitcoin
+                        <!-- <br>24h change -->
+                    </td>
                     <td>buy price</td>
                     <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.ask) }}</td>
                 </tr>

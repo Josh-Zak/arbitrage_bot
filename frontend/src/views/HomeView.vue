@@ -3,11 +3,13 @@
         <div id="welcomeContainer">
             <Welcome :apiData="apiData"/>
         </div>
-        <div id="bestPricesContainer">
-            <BestPrices :apiData="apiData"/>
-        </div>
-        <div id="tableContainer">
-            <CryptoTable :apiData="apiData" />
+        <div class="section2">
+            <div id="bestPricesContainer">
+                <BestPrices :apiData="apiData"/>
+            </div>
+            <div id="tableContainer">
+                <CryptoTable :apiData="apiData" />
+            </div>
         </div>
     </div>
 </template>
@@ -58,6 +60,9 @@ export default {
 #tableContainer{
     display: flex;
     justify-content: center;
+}
+
+.section2{
     background-color: var(--colour1);
 }
 
