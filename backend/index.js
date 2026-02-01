@@ -1,7 +1,12 @@
+// ===== ENV CONFIG =====
+const port = process.env.PORT || 3000;
+const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+
 
 const binance = require("./handlers/binanceHandler");
 const bitfinex = require("./handlers/bitfinexHandler");
@@ -16,17 +21,18 @@ const upbit = require("./handlers/upbitHandler");
 
 
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: frontendUrl
 }));
 
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.json({ message: 'Hello World!' });
 });
 
+app.get('/health', (req, res) => res.status(200).send('OK'));
 
 
 app.get('/tableData', async (req, res) => {
@@ -44,7 +50,7 @@ app.get('/tableData', async (req, res) => {
       upbit.fetchData()
     ]);
 
-    res.send(data);
+    res.json(data);
   }catch(error){
     console.error('Error fetching data: ', error);
     res.status(500).send('Internal Server Error');
