@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         fetchPrices() {
-            axios.get('http://localhost:3000/tableData')
+            axios.get(`${import.meta.env.VITE_API_URL}/tableData`)
                 .then(res => {
                     this.apiData = res.data;
                 })
