@@ -11,11 +11,11 @@
                     <td class="name" rowspan="2">Bitcoin
                         <!-- <br>24h change -->
                     </td>
-                    <td>buy price</td>
+                    <td>Buy Price</td>
                     <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.ask) }}</td>
                 </tr>
                 <tr>
-                    <td>sell price</td>
+                    <td>Sell Price</td>
                     <td v-for="(price, index) in exchangeData" :key="index">{{ formatPrice(price.bid) }}</td>
                 </tr>
             </tbody>
@@ -42,8 +42,9 @@ export default{
     watch: {
         apiData(newData) {
             if (newData) {
-                this.headers = ['Name', 'Best Price'];
+                this.headers = ['Name', 'Price'];
                 newData.forEach(item => {
+                    if(!item || !item.name) return;
                     this.headers.push(item.name);
                 });
                 this.exchangeData = newData;
