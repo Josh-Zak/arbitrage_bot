@@ -50,8 +50,6 @@ app.get('/tableData', async (req, res) => {
       upbit.fetchData()
     ]);
 
-    const successful = [];
-
     const successful = results
         .filter(r => r.status === "fulfilled" && r.value && r.value.bid != null && r.value.ask != null && r.value.name)
         .map(r => r.value);
