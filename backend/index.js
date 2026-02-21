@@ -37,7 +37,7 @@ app.get('/health', (req, res) => res.status(200).send('OK'));
 
 app.get('/tableData', async (req, res) => {
   try{
-    const data = await Promise.all([
+    const results = await Promise.allSettled([
       binance.fetchData(),
       bitfinex.fetchData(),
       bybit.fetchData(),
@@ -50,7 +50,15 @@ app.get('/tableData', async (req, res) => {
       upbit.fetchData()
     ]);
 
-    res.json(data);
+    const successful = [];
+
+    results.forEach((result, index) => {
+      if (result.status === "fulfilled") {
+        successful.push(result.value);
+      }
+    });
+
+    res.json(successful);
   }catch(error){
     console.error('Error fetching data: ', error);
     res.status(500).send('Internal Server Error');

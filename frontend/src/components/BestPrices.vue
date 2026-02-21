@@ -54,6 +54,7 @@ export default{
                 let bestAsk = Infinity;
                 let bestAskName;
                 newData.forEach(item => {
+                    if(!item || item.bid == null || item.ask == null || !item.name) return;
                     if(item.bid >= bestBid){
                         bestBid = item.bid;
                         bestBidName = item.name;
