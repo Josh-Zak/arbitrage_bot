@@ -52,11 +52,9 @@ app.get('/tableData', async (req, res) => {
 
     const successful = [];
 
-    results.forEach((result, index) => {
-      if (result.status === "fulfilled") {
-        successful.push(result.value);
-      }
-    });
+    const successful = results
+        .filter(r => r.status === "fulfilled" && r.value && r.value.bid != null && r.value.ask != null && r.value.name)
+        .map(r => r.value);
 
     res.json(successful);
   }catch(error){
