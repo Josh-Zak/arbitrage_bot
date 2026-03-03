@@ -3,9 +3,11 @@
         <header>
             <div class="headerWrapper">
                 <nav>
-                    <RouterLink to="/">Home</RouterLink>
-                    <RouterLink to="/calculator">Calculator</RouterLink>
-                    <!-- <RouterLink to="/about">About</RouterLink> -->
+                    <div>Cryptotrage</div>
+                    <div class="navLinks">
+                        <RouterLink to="/">Home</RouterLink>
+                        <RouterLink to="/calculator">Calculator</RouterLink>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -32,16 +34,9 @@
                 </div>
             </div>
 
-            <!-- maybe back to top button -->
-            <!-- <h2 class="quote">"The journey of a thousand miles begins with one step." - Lao Tzu</h2> -->
         </footer>
     </div>
 </template>
-
-
-<!-- <script setup>
-  import { RouterLink, RouterView } from 'vue-router'
-</script> -->
 
 
 <style scoped>
@@ -49,11 +44,19 @@
 .headerWrapper nav{
   height: 70px;
   background-color: var(--colour1);
-  text-align: center;
   padding: 10px 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.headerWrapper nav > div:first-child {
+  position: absolute;
+  left: 20px;
+  font-weight: bold;
+  font-size: x-large;
+  color: var(--colour4);
 }
 
 .headerWrapper nav a{
@@ -66,6 +69,12 @@
 
 .headerWrapper nav a:hover{
     color: var(--colour5);
+}
+
+.headerWrapper nav .navLinks {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .headerWrapper{
