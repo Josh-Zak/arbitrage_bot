@@ -16,12 +16,10 @@
 
         <footer>
             <div class="footerWrapper">
-                <div class="navWrapper">
-                    <nav>
-                        <RouterLink to="/">Home</RouterLink>
-                        <RouterLink to="/calculator">Arbitrage Calculator</RouterLink>
-                    </nav>
-                </div>
+                <nav class="navWrapper">
+                    <RouterLink to="/">Home</RouterLink>
+                    <RouterLink to="/calculator">Calculator</RouterLink>
+                </nav>
                 <p class="disclaimer">This site is 100% for entertainment purposes only and does not involve real money betting.
                         If you or someone you know has a gambling problem and wants help, call 1-800 GAMBLER.
                         This service is intended for adult users only.
@@ -79,6 +77,7 @@
 
 .headerWrapper{
   border-bottom: solid var(--colour3) 1px;
+  width: 100%;
 }
 
 
@@ -90,34 +89,39 @@ footer{
 }
 
 .footerWrapper{
-    width: 1280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .disclaimer{
     font-size: medium;
-    margin: 0 100px 20px 150px;
+    padding: 2rem;
     color: var(--colour4);
     text-align: center;
 }
 
-.navWrapper nav{
+
+.navWrapper{
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
-.navWrapper nav a {
+.navWrapper a {
     text-align: center;
     color: var(--colour4);
-    margin: 20px 40px;
-    width: 150px;
+    margin: 1rem 1rem;
 }
-.navWrapper nav a:hover{
+.navWrapper a:hover{
     color: var(--colour5);
 }
 
 hr{
     border-color: var(--colour4);
+    width: calc(100% - 4rem);
 }
 
 .author{

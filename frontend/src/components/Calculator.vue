@@ -21,7 +21,7 @@
             </div>
 
             <div class="input-Field">
-                <Label for="amount">Bitcoin Amount</Label>
+                <Label for="amount">Total Bitcoin</Label>
                 <div class="input-wrapper">
                     <span class="dollar-sign">₿</span>
                     <input type="number" placeholder="0" v-model="amount">
@@ -67,8 +67,11 @@ export default{
 
 /* Component wrapper */
 .calculator-component-wrapper{
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
 }
 
 
@@ -81,7 +84,7 @@ export default{
 .subheading{
     text-align: center;
     color: var(--colour5);
-    
+    padding: 2rem;
 }
 
 
@@ -89,8 +92,9 @@ export default{
 .box {
     border: 2px solid var(--colour3);
     background-color: var(--colour2);
-    border-radius: 20px;
-    margin: 20px;
+    border-radius: 1.5rem;
+    margin: 2rem;
+    min-width: calc(100% - 4rem);
 }
 
 label{
@@ -102,7 +106,7 @@ label{
 }
 
 .input-wrapper{
-    border-radius: 5px;
+    border-radius: 0.3rem;
     background-color: var(--colour1);
     display: flex;
     align-items: baseline;
@@ -111,12 +115,13 @@ label{
 input {
     flex: 1;
     border: none;
-    min-height: 50px;
+    min-height: 3rem;
     background-color: transparent;
     font-size: 90%;
     outline: none;
     caret-color: var(--colour5);
     color: var(--colour5);
+    width: 0px;
 }
 
 /* Remove arrows on input */
@@ -135,14 +140,14 @@ input[type=number] {
 .input-Field, .profit{
     display: flex;
     gap: 10px;
-    margin: 30px;
+    margin: 1.5rem;
     color: var(--colour5);
     font-size: x-large;
 }
 
 .profit {
     justify-content: space-between;
-    padding-top: 20px;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--colour3);
 }
 
