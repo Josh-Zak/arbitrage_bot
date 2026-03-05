@@ -2,13 +2,14 @@
     <div>
         <header>
             <div class="headerWrapper">
-                <nav>
-                    <div>Cryptotrage</div>
-                    <div class="navLinks">
+                <div class="logo">Cryptotrage</div>
+                <div class="navLinks">
+                    <nav>
                         <RouterLink to="/">Home</RouterLink>
                         <RouterLink to="/calculator">Calculator</RouterLink>
-                    </div>
-                </nav>
+                    </nav>
+                </div>
+                <div class="hamburger">☰</div>
             </div>
         </header>
 
@@ -37,48 +38,63 @@
 </template>
 
 
+
 <style scoped>
 
-.headerWrapper nav{
-  height: 70px;
-  background-color: var(--colour1);
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.headerWrapper{
+	border-bottom: solid var(--colour3) 1px;
+	background-color: var(--colour1);
+	width: 100%;
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	/* justify-content: space-between; */
 }
 
-.headerWrapper nav > div:first-child {
-  position: absolute;
-  left: 20px;
+.headerWrapper :nth-child(1){
+	margin-left: 2rem;
+}
+.headerWrapper :nth-last-child(1){
+	margin-right: 2rem;
+}
+
+.logo{
   font-weight: bold;
   font-size: x-large;
   color: var(--colour4);
+  flex: 1;
+}
+
+.hamburger{
+	flex: 1;
+	text-align: right;
+	font-size: x-large;
+	color: var(--colour4);
 }
 
 .headerWrapper nav a{
   line-height: 35px;
   color: var(--colour4);
   font-size: x-large;
-  margin: 0px 15px;
   width: 100px;
+}
+
+.headerWrapper a:nth-child(1){
+	margin-right: 4rem;
 }
 
 .headerWrapper nav a:hover{
     color: var(--colour5);
 }
 
-.headerWrapper nav .navLinks {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.headerWrapper .navLinks {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	flex: 1;
 }
 
-.headerWrapper{
-  border-bottom: solid var(--colour3) 1px;
-  width: 100%;
-}
 
 
 
@@ -107,7 +123,6 @@ footer{
 .navWrapper{
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
 .navWrapper a {
@@ -125,12 +140,26 @@ hr{
 }
 
 .author{
-    margin: 20px 20px 20px 0;
+    align-self: flex-end;
+    padding: 2rem 2rem 2rem 0;
     text-align: right;
 }
 
 .author a{
     color: var(--colour4);
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .headerWrapper .navLinks{
+        display: none;
+    }
+
+    .hamburger{
+		text-align: right;
+		/* display: flex; */
+    }
 }
 
 </style>
