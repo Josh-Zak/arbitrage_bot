@@ -3,14 +3,16 @@
         <header>
             <div class="headerWrapper">
                 <div class="logo">Cryptotrage</div>
-                <div class="navLinks">
-                    <nav>
-                        <RouterLink to="/">Home</RouterLink>
-                        <RouterLink to="/calculator">Calculator</RouterLink>
-                    </nav>
-                </div>
-                <div class="hamburger">☰</div>
+				<nav class="webNav">
+					<RouterLink to="/">Home</RouterLink>
+					<RouterLink to="/calculator">Calculator</RouterLink>
+				</nav>
+                <div class="hamburger" @click="mobileNavOpen = !mobileNavOpen">☰</div>
             </div>
+			<nav class="mobileNav" v-show="mobileNavOpen">
+				<RouterLink to="/" @click="mobileNavOpen = !mobileNavOpen">Home</RouterLink>
+				<RouterLink to="/calculator" @click="mobileNavOpen = !mobileNavOpen">Calculator</RouterLink>
+			</nav>
         </header>
 
         <RouterView />
@@ -37,6 +39,29 @@
     </div>
 </template>
 
+
+<script>
+export default{
+	data(){
+		return {
+			mobileNavOpen: false
+		}
+	},
+	methods: {
+		handleResize(){
+			if(window.innerWidth > 700){
+				this.mobileNavOpen = false;
+			}
+		}
+	},
+	mounted(){
+		window.addEventListener('resize', this.handleResize);
+	},
+	beforeUnmount(){
+		window.removeEventListener('resize', this.handleResize);
+	}
+}
+</script>
 
 
 <style scoped>
@@ -71,24 +96,27 @@
 	text-align: right;
 	font-size: x-large;
 	color: var(--colour4);
+	visibility: hidden;
 }
 
-.headerWrapper nav a{
+.webNav a, .mobileNav a{
   line-height: 35px;
   color: var(--colour4);
   font-size: x-large;
   width: 100px;
+  background-color: var(--colour1);
 }
+
 
 .headerWrapper a:nth-child(1){
 	margin-right: 4rem;
 }
 
-.headerWrapper nav a:hover{
+.headerWrapper .webNav a:hover{
     color: var(--colour5);
 }
 
-.headerWrapper .navLinks {
+.headerWrapper .webNav {
 	display: flex;
 	justify-content: center;
 	width: 100%;
@@ -152,13 +180,24 @@ hr{
 
 
 @media screen and (max-width: 700px) {
-    .headerWrapper .navLinks{
+    .headerWrapper .webNav{
         display: none;
     }
 
+	.mobileNav{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.mobileNav a{
+		flex: 1;
+		width: 100%;
+		padding: 1rem 0 1rem 2rem;
+	}
+
     .hamburger{
 		text-align: right;
-		/* display: flex; */
+		visibility: visible;
     }
 }
 
