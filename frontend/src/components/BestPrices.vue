@@ -1,23 +1,21 @@
 <template>
-    <div class="bestPricesWrapper">
-        <div class="bestPricesContainer">
-            <div class="bestBuy">
-                <h2>Best exchange to buy from</h2>
-                <h3 v-if="buyPrice != null">{{ buyName }} - <span id="buyPrice">{{ formatPrice(buyPrice) }}</span></h3>
-                <h3 v-else><span id="buyPrice">Loading...</span></h3>
+    <div class="bestPricesContainer">
+        <div class="bestBuy">
+            <h2>Best exchange to buy from</h2>
+            <h3 v-if="buyPrice != null">{{ buyName }} - <span id="buyPrice">{{ formatPrice(buyPrice) }}</span></h3>
+            <h3 v-else><span id="buyPrice">Loading...</span></h3>
+        </div>
+        <div class="arbitrage">
+            <div v-if="arbitrage > 0.0">
+                <h3>There is an arbitrage</h3>
+                <h2 id="arbitrageValue">{{ arbitrage }}%</h2>
             </div>
-            <div class="arbitrage">
-                <div v-if="arbitrage > 0.0">
-                    <h3>There is an arbitrage</h3>
-                    <h2 id="arbitrageValue">{{ arbitrage }}%</h2>
-                </div>
-                <h3 v-else>There is currently no arbitrage. Check back later</h3>
-            </div>
-            <div class="bestSell">
-                <h2>Best exchange to sell to</h2>
-                <h3 v-if="sellPrice != null">{{ sellName }} - <span id="sellPrice">{{ formatPrice(sellPrice) }}</span></h3>
-                <h3 v-else><span id="sellPrice">Loading...</span></h3>
-            </div>
+            <h3 v-else>There is currently no arbitrage. Check back later</h3>
+        </div>
+        <div class="bestSell">
+            <h2>Best exchange to sell to</h2>
+            <h3 v-if="sellPrice != null">{{ sellName }} - <span id="sellPrice">{{ formatPrice(sellPrice) }}</span></h3>
+            <h3 v-else><span id="sellPrice">Loading...</span></h3>
         </div>
     </div>
 </template>
@@ -80,21 +78,12 @@ export default{
 
 <style scoped>
 
-.bestPricesWrapper{
-    display: flex;
-    background: var(--colour1);
-    height: 180px;
-    justify-content: center;
-    align-items: center;
-    padding-top: 180px;
-    margin-bottom: 120px;
-}
-
 .bestPricesContainer{
+    background: var(--colour1);
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 1280px;
+    justify-content: center;
+    padding: 6rem 2rem;
+    gap: 2rem;
 }
 
 .bestBuy, .bestSell, .arbitrage{
@@ -104,7 +93,7 @@ export default{
 }
 
 .bestBuy, .bestSell{
-    width: 450px;
+    text-align: center;
 }
 
 
@@ -113,10 +102,10 @@ h2, h3{
 }
 
 h2{
-    font-size: 32px;
+    font-size: 2rem;
 }
 h3{
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 #buyPrice{
@@ -131,4 +120,17 @@ h3{
     text-align: center
 }
 
+
+
+
+@media screen and (max-width: 1000px) {
+    .bestPricesContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .arbitrage{
+        order: -1;
+    }
+}
 </style>

@@ -38,13 +38,19 @@
 .summaryWrapper{
     display: flex;
     justify-content: center;
+    margin: 0 2rem;
 }
 
 
 .summaryContainer{
-    width: 1280px;
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 950px){
+    .summaryContainer{
+        flex-direction: column;
+    }
 }
 
 

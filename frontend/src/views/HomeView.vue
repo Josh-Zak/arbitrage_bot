@@ -4,9 +4,7 @@
             <Welcome :apiData="apiData"/>
         </div>
         <div class="section2">
-            <div id="bestPricesContainer">
-                <BestPrices :apiData="apiData"/>
-            </div>
+            <BestPrices :apiData="apiData"/>
             <div id="tableContainer">
                 <CryptoTable :apiData="apiData" />
             </div>
@@ -52,14 +50,11 @@ export default {
 
 <style scoped>
 
-#welcomeContainer{
-    height: 100vh;
-}
-
 
 #tableContainer{
     display: flex;
     justify-content: center;
+    margin: 0 2rem;
 }
 
 .section2{

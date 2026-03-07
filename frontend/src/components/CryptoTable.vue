@@ -1,6 +1,6 @@
 <template>
     <div class="tableScroll">
-        <table class="cryptoTable">
+        <table class="cryptoTable" v-show="!mobileDisplay">
             <thead>
                 <tr>
                     <th v-for="(header, index) in headers" :key="index">{{ header }}</th>
@@ -20,6 +20,26 @@
                 </tr>
             </tbody>
         </table>
+        <table class="cryptoTable" v-show="mobileDisplay">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th class="name" colspan="2">Bitcoin</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Buy Price</th>
+                    <th>Sell Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(exchange, index) in exchangeData" :key="index">
+                    <td class="name">{{ exchange.name }}</td>
+                    <td>{{ formatPrice(exchange.ask) }}</td>
+                    <td>{{ formatPrice(exchange.bid) }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
@@ -30,8 +50,16 @@ export default{
     data() {
         return {
             headers: ['Name', 'Best Price'],
-            exchangeData: null
+            exchangeData: null,
+            mobileDisplay: false
         }
+    },
+    mounted() {
+        this.checkScreenSize();
+        window.addEventListener('resize', this.checkScreenSize);
+    },
+    beforeUnmount(){
+        window.removeEventListener('resize', this.checkScreenSize);
     },
     props: {
         apiData: {
@@ -54,6 +82,9 @@ export default{
     methods: {
         formatPrice(value) {
             return parseFloat(value).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
+        checkScreenSize(){
+            this.mobileDisplay = window.innerWidth <= 700;
         }
     }
 }
@@ -102,9 +133,16 @@ table{
 }
 
 .tableScroll{
-    margin: 30px;
+    margin: 30px 0;
     overflow-x: auto;
-    width: 1280px;
-    margin-bottom: 200px;
+    margin-bottom: 12rem;
 }
+
+@media screen and (max-width: 700px) {
+    th{
+        text-align: left
+    }
+}
+
+
 </style>

@@ -26,10 +26,11 @@ export default{
 <style scoped>
 .summaryBoxWrapper{
     flex: 1;
-    margin: 20px;
-    padding: 20px;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
     border: 2px solid var(--colour3);
     border-radius: 10px;
+    min-width: 16rem;
 }
 
 h1{

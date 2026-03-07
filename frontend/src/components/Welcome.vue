@@ -51,22 +51,22 @@ export default {
 
 
 .welcomeText{
-    height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 160px;
-    margin-bottom: 50px;
+    margin: 10rem 2rem 3rem 2rem;
 }
 
 .welcomeText h1{
-    font-size: 48px;
+    font-size: 3rem;
     color: var(--colour5);
+    text-align: center;
 }
 .welcomeText h3{
-    font-size: 24px;
+    font-size: 1.5rem;
     color: var(--colour5);
+    text-align: center;
 }
 
 #bitcoinText{
@@ -79,8 +79,7 @@ export default {
 }
 
 #scrollWrapper{
-    margin-top: auto;
-    margin-bottom: 10vh;
+    margin: 16rem 0 4rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,6 +93,18 @@ export default {
 
 #scrollWrapper.hidden {
   opacity: 0;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .welcomeText{
+        margin-top: 12%;
+    }
+    
+    
+    #scrollWrapper{
+        margin: 3rem 0;
+    }
 }
 
 </style>
