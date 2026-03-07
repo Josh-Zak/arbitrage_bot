@@ -26,7 +26,7 @@ export default{
 <style scoped>
 .summaryBoxWrapper{
     flex: 1;
-    margin: 1.5rem 0;
+    margin: 1.5rem;
     padding: 1.5rem;
     border: 2px solid var(--colour3);
     border-radius: 10px;
